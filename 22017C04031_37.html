@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Que 37</title>
+    <style>
+        .Question{
+            height: 12vh;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width:920px){
+            .Question{
+                height: 8vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="Question">
+        <h1>Write a program to use script to print hello in HTML?</h1>
+    </div>
+    <h1>The Script element.</h1>
+    <h2 id="id1"></h2>
+    <script>
+        document.getElementById("id1").innerHTML= "Hello World!";
+    </script>
+</body>
+</html>

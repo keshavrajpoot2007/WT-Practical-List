@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        color: white;
+    }
+    
+    body {
+        background-color: rgb(8, 7, 7);
+    }
+    
+    .nav-bar {
+        height: 5vw;
+        background-color: rgb(0, 0, 0);
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    label.logo {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-left: 2vw;
+        line-height: 5vw;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+            "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+    .nav-bar ul {
+        list-style: none;
+        float: right;
+        line-height: 5vw;
+        font-size: 1.5rem;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+    .nav-bar ul li {
+        display: inline;
+        padding-right: 2vw;
+    }
+    .image{
+        padding-left: 5vw;
+    }
+    img{
+        width: 30vw;
+        height: auto;
+        border-radius: 20px;
+    }
+    .box{
+        height: max-content;
+        margin-top: 5vw;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        padding-left: 5vw;
+        padding-right: 10vw;
+        padding-top: 5vw;
+        padding-bottom: 5vw;
+        border-radius: 20px;
+        color: white;
+        font-size: 1.5rem;
+        background-color: rgb(12, 12, 12);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        transition: 0.8s;
+    }
+    .box:hover {
+        box-shadow: 15px 18px 12px rgb(68, 70, 69);
+        transform: scale(101%);
+        transition: ease-in-out 0.5s;
+        
+    }
+    .box ul{
+        list-style-position: inside;
+        padding-left: 5vw;
+        text-align: left;
+    }
+    .heading{
+        font-size: 2rem;
+        text-align: center;
+        margin-top: 5vw;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .red{
+        color: red;
+    }
+    .gold{
+        color: gold;
+    }
+    
+    @media only screen and (max-width: 700px){
+        .nav-bar{
+            height: 10vh;
+            flex-direction: column;
+        }
+        label.logo{
+            text-align: center;
+            
+        }
+        img{
+           width: 35vh;
+           height: auto;
+        }
+        .image{
+            padding-top:5vw;
+            padding-bottom: 10vw;
+        }
+        label.logo{
+            font-size: 1.5rem;
+            line-height: 5vw;
+        }
+        .nav-bar ul{
+            font-size: 1rem;
+        }
+        .box{
+            display: flex;
+            flex-direction: column-reverse;    
+        }
+    }
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <nav>
+        <div class="nav-bar">
+          <label class="logo">
+            <a href="#header" class="logo">Port<span style="color: gold">folio</span></a>
+          </label>
+
+          <ul>
+            <li>
+              <a href="#Home"><span class="red">Home</span></a>
+            </li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Skills">Skills</a></li>
+            <li><a href="22017C04031.php">Projects</a></li>
+            <li>
+              <a href="#Contact"><span class="red">Contact</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section id="Home">
+      <div class="box">
+        <div>
+          <h1>Welcome to <span class="gold">My Portfolio</span></h1>
+          <br/>
+          <h2>
+            I am <span class="red">Keshav Rajpoot</span> and I am a
+            <span class="red">Web Developer</span>
+          </h2>
+        </div>
+        <div class="image">
+          <img
+            src="https://th.bing.com/th/id/OIP.mmgqLAo7CqmHU2-V1_pBfwHaEm?rs=1&pid=ImgDetMain"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="About">
+      <div class="heading">
+        <h1>About <span class="gold">Me</span></h1>
+      </div>
+      <div class="box">
+        <div>
+          <p>
+            I am <span class="gold">Keshav Rajpoot</span>, a dedicated web
+            developer currently pursuing my studies in
+            <span class="gold">Computer Science and Engineering</span> at Dr. B.
+            R. Ambedkar Polytechnic College in Gwalior. My journey in this field
+            has equipped me with a solid foundation in
+            <span class="red">C</span> and
+            <span class="red">Python</span> programming. However, my true
+            passion lies in <span class="red">Web development</span>. I am
+            actively improving my skills in
+            <span class="red">HTML, CSS, JavaScript, MySQL, PHP,</span> and
+            <span class="red">Bootstrap</span>. Recently, I even created a
+            <span class="red">Database</span> using MySQL! As I continue to
+            explore this dynamic field, I aim to build innovative and
+            user-centric web solutions.
+          </p>
+        </div>
+        <div class="image">
+          <img
+            src="https://img.freepik.com/premium-photo/coding-software-developer-work_587448-4090.jpg"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="Skills">
+      <div class="heading">
+        <h1>Ski<span class="gold">lls</span></h1>
+      </div>
+      <div class="box">
+        <div>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>MySql</li>
+            <li>Bootstrap</li>
+            <li>C Programming</li>
+            <li>Python</li>
+          </ul>
+        </div>
+        <div class="image">
+          <img
+            src="https://th.bing.com/th/id/OIP.uf8a4yylbfUOSgWvCjn4PAHaDF?rs=1&pid=ImgDetMain"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="Contact">
+      <div class="heading">
+        <h1>Contact <span class="gold">Us</span></h1>
+      </div>
+      <div class="box">
+        <div>
+          <ul>
+            <li>
+              Phone :-
+              <a href="tel:9098603571"
+                ><span class="gold">+919098603571</span></a
+              >
+            </li>
+            <li>
+              Email :-
+              <a href="mailto:keshavrajpoot2007@gmail.com"
+                ><span class="gold">keshavrajpoot2007@gmail.com</span></a
+              >
+            </li>
+            <li>
+              Coding Profile :-
+              <ul>
+                <li>
+                  <a href="https://discuss.codechef.com/u/keshav2007"
+                    ><span class="red">Codechef Profile</span></a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.hackerrank.com/profile/keshavrajpoot201"
+                    ><span class="red">Hackerrank Profile</span></a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              Social Media :-
+              <ul>
+                <li>
+                  <a href="https://www.instagram.com/its_kr.2007"
+                    ><span class="red">Instagram</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/keshav-rajpoot-21b3b42b4/"
+                    ><span class="red">Linkedin</span></a
+                  >
+                </li>
+                <li>
+                  <a href="https://twitter.com/KeshavR96844901"
+                    ><span class="red">Twitter</span></a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="image">
+          <img
+            src="https://media.rswebsols.com/wp-content/uploads/2019/07/app-social-network-marketing-analysis-media.jpg"
+          />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

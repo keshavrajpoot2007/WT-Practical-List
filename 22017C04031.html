@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background: url(https://images.freecreatives.com/wp-content/uploads/2016/04/Website-Backgrounds-For-Desktop.jpg)center/cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            margin-right: 5vw;
+        }
+
+        .side-nav{
+            width: 8vw;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 30px 5px;
+            background: #fff5;
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            transition: width 0.5s;
+            z-index: 90;
+        }
+        ul{
+            list-style: none;
+            padding: 0 15px;
+        }
+        ul li{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-top: 10vh;
+        }
+        ul li .p{
+            white-space: nowrap;
+            display: none;
+        }
+        .side-nav:hover{
+            width: 250px;
+        }
+
+        .side-nav:hover .p{
+            display: block;
+        }
+        .side-nav:hover ul li{
+            justify-content: flex-start;
+        }
+
+        table,
+        th,
+        td {
+            border-collapse: collapse;
+            padding: 1rem;
+        }
+
+        main.table {
+            width: 82vw;
+            height: 90vh;
+            background-color: #fff5;
+
+            backdrop-filter: blur(7px);
+            box-shadow: 0 .4rem .8rem #0005;
+            border-radius: .8rem;
+
+            overflow: hidden;
+        }
+
+        .table_header {
+            width: 100%;
+            background-color: #fff4;
+            padding: .8rem 1rem;
+            font-size: 2rem;
+
+        }
+
+        .table_body {
+            width: 95%;
+            max-height: calc(75% - .8rem);
+            background-color: #fffb;
+            margin: .8rem auto;
+            border-radius: .6rem;
+
+            overflow: auto;
+        }
+
+        .table_body::-webkit-scrollbar {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
+
+        .table_body::-webkit-scrollbar-thumb {
+            border-radius: .5rem;
+            background-color: #0004;
+            visibility: hidden;
+        }
+
+        .table_body:hover::-webkit-scrollbar-thumb {
+            visibility: visible;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: #d5d1defe;
+
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #0000000b;
+        }
+
+        tbody tr:hover {
+            background-color: rgba(99, 99, 99, 0.4);
+        }
+
+        .searchbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #searchInput {
+            width: 80%;
+            font-size: 16px;
+            padding: 2vh 2vh;
+            margin: 12px 0;
+            border: 1px solid rgba(99, 99, 99, 0.4);
+            border-radius: 2rem;
+            background-color: #d5d1defe;
+        }
+
+        #searchInput::placeholder {
+            color: black;
+        }
+
+        .modal-header{
+            background-color: #d5d1defe;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        }
+
+        #user-title{
+            background-color: #d5d1defe;
+            text-align: center;
+        }
+
+        #user-name{
+            
+            background-color: #d5d1defe;
+        }
+
+        .custom-select {
+            color: #494545;
+
+        }
+
+        .custom-select.black {
+            color: black;
+        }
+        .arrow-button{
+            display: none;
+        }
+        .arrow{
+            z-index: 100;
+            position: fixed;
+
+            left: 0;
+        }
+
+        @media (max-width:1000px) {
+            td:not(:first-of-type) {
+                min-width: 12.1rem;
+            }
+
+            * {
+                font-size: 1rem;
+            }
+            .side-nav{
+                width: 50vw;
+                display: none;
+            }
+            ul li .p{
+                display: block;
+            }
+            .side-nav ul li{
+                justify-content: flex-start;
+            }
+            .arrow-button{
+                display: block;
+            }
+            .arrow-button {
+                border: none;
+                cursor: pointer;
+                transition: transform 1.5s ease; /* Add a smooth animation effect */
+                border-radius: 50%;
+                background: #fff5;
+            } 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="modal fade" id="ask-name" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLabel"><b>Welcome!</b></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-cross"></button>
+                </div>
+                <div class="modal-body">
+                    <label class="h4" for="user-name">Enter Your Name: </label>
+                    <div class="input-group">
+                        <select class="rounded-start border-secondary custom-select" id="user-title" onchange="changeColor(this)">
+                            <option value="">Choose...</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Miss.">Miss.</option>
+                            <option value="">Null</option>
+                          </select>  
+                        <input type="text" class="form-control border-secondary" id="user-name" maxlength="50" placeholder='e.g., "Keshav Rajpoot" (Whitespace should be proper.)' required>
+                    </div>
+                    <p class="pt-4">
+                        <b>
+                            Note:
+                        </b>
+                        Name will be stored in local session storage not in database
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-btn">Close</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="save-name">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="side-nav" id="side-nav">
+        <ul>
+            <li><i class="bi bi-house-door-fill fs-1 me-2"></i><span class="p"><a href="22017C04031.php" style="text-decoration: none; color:black;">Dashboard</a></span></li>
+            <li><i class="bi bi-person-circle fs-1 me-2"></i><span class="p"><a href="22017C04031_62.php" style="text-decoration: none; color:black;">My Portfolio</a></span></li>
+            <li><i class="bi bi-github fs-1 me-2"></i><span class="p"><a href="https://github.com/keshavrajpoot2007" style="text-decoration: none; color:black;">Github</a></li>
+            <li><i class="bi bi-linkedin fs-1 me-2"></i><span class="p"><a href="https://www.linkedin.com/in/keshav-rajpoot-21b3b42b4?trk=contact-info" style="text-decoration: none; color:black;">Linkdin</a></span></li>
+        </ul>
+    </div> 
+    <div class="arrow" id="arrow">
+        <button class="arrow-button border border-2 border-dark" onclick="arrow()" id="arrow-button"><i class="bi bi-arrow-right-circle fs-1"></i></button>
+        <script>
+            function arrow(){
+                a = document.getElementById("side-nav");
+                if(a.style.display==="none"){
+                    document.getElementById("side-nav").style.display="block";
+                    document.getElementById("arrow").style.marginLeft="50vw";
+                    document.getElementById("arrow").style.transition="1.5s";
+                 
+                }
+                else{
+                    document.getElementById("side-nav").style.display="none";
+                    document.getElementById("arrow").style.marginLeft="0vw";
+                    document.getElementById("arrow").style.transition="1.5s";
+                }
+                
+            }
+                
+        </script>
+    </div>
+
+    <main class="table">
+
+        <div class="table_header ">
+
+                <span id="typed" class="fs-1"></span>
+
+        </div>
+
+        <section class="searchbox">
+            <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search...">
+        </section>
+
+        <section class="table_body">
+            <table id="myTable">
+
+                <thead>
+                    <tr>
+                        <th>S.no.</th>
+                        <th>Problem</th>
+                        <th>Status</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>
+                            1. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which displays your name, college name, and semester. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_1.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which redirects to Google page.(using &lt; a&gt; tag). </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_2.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            3. 
+                        </td>
+                        <td>
+                            Write a code for html web page which redirects to polygwalior website, Google and some
+                            documents using &lt; a&gt; tag. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_3.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            4. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which displays the image of Virat Kohli.(using &lt; img&gt;
+                            tag). </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_4.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>5. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which displays the image of Sachin Tendulkar (using &lt;
+                            img&gt; tag). </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_5.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            6. 
+                        </td>
+                        <td>
+                            Write a code for html web page which displays your name in left, college name in right, and
+                            semester in center, your branch in red background color and text size - 50px. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_6.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            7. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which displays your name in &lt; h1&gt; tag and also in blue
+                            color and &lt; p&gt; tag uses purple background color. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_7.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            8. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which displays some text formatting and uses &lt; em&gt;, &lt;
+                            i&gt;, &lt; small&gt;, &lt; b&gt;, &lt; strong&gt;, &lt; sup&gt;, &lt; sub&gt;, &lt;
+                            ins&gt;, &lt; del&gt; and &lt; mark&gt; tag. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_8.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            9. 
+                        </td>
+                        <td>Write a code for html webpage which displays some background color and text of red colour.
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_9.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            10. 
+                        </td>
+                        <td>
+                            Write a CSS file and attached to any 3 html webpage.<br>
+                            <br>Page 1st<br>
+                            <br>Page 2nd<br>
+                            <br>Page 3rd
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_10.php?q=1" target="_blank" class="btn btn-outline-success mt-3">
+                                Open
+                            </a>
+                            <br>
+                            <a href="./22017C04031_10.php?q=2" target="_blank" class="btn btn-outline-success mt-3">
+                                Open
+                            </a>
+                            <br>
+                            <a href="./22017C04031_10.php?q=3" target="_blank" class="btn btn-outline-success mt-3">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            11. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which displays Virat Kohli image as background. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_11.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            12. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which displays table using &lt; tr&gt; and &lt; td&gt; tag.
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_12.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            13. 
+                        </td>
+                        <td>
+                            Make a form in html web page which takes all the details of person. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_13.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            14. 
+                        </td>
+                        <td>
+                            Make a form in html web page which takes all the details of person.(Ex - Name, Password,
+                            Age, Date of Birth, Month of Admission, Year of 10 Passed, Gender, Qualification, Select
+                            Branch, Category (SC/ST/Gen/OBC) using data list, Select Color, Select Range (0 to 100),
+                            Submit button). </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_14.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            15. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which displays a list. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_15.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            16. 
+                        </td>
+                        <td>
+                            Use Class, ID selectors to style various elements of HTML Page.Ex: create four &lt; p&gt;
+                            and four &lt; h1&gt; element.Center align two &lt; p&gt; and two &lt; h1&gt; using
+                            Class.Colour all &lt; p&gt; to blue using class.Last &lt; h1&gt; should colour in yellow
+                            using id. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_16.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            17. 
+                        </td>
+                        <td>
+                            Use Div and span in a page and color two words with same colors. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_17.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            18. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which displays background.<br>
+                            <br>Background Color<br>
+                            <br>Background Image<br>
+                            <br>Background Repeat<br>
+                            <br>Background Attachment<br>
+                            <br>Background Position
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_18.php?q=1" target="_blank" class="btn btn-outline-success mt-3">
+                                Open
+                            </a>
+                            <br><a href="./22017C04031_18.php?q=2" target="_blank" class="btn btn-outline-success mt-3">
+                                Open
+                            </a>
+                            <br><a href="./22017C04031_18.php?q=3" target="_blank" class="btn btn-outline-success mt-3">
+                                Open
+                            </a>
+                            <br><a href="./22017C04031_18.php?q=4" target="_blank" class="btn btn-outline-success mt-3">
+                                Open
+                            </a>
+                            <br><a href="./22017C04031_18.php?q=5" target="_blank" class="btn btn-outline-success mt-3">
+                                Open
+                            </a>
+                            <br>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            19. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which displays all practical on Border , Margin , Padding of
+                            elements. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_19.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            20. 
+                        </td>
+                        <td>
+                            Write a code for html webpage which displays all practical on Text/font formatting,
+                            width-Height. </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_20.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            21. 
+                        </td>
+                        <td>
+                            Write a program to print hello in HTML using body tag?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_21.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            22. 
+                        </td>
+                        <td>
+                            Write a program to print information about yourself by using paragraph heading tag?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_22.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            23. 
+                        </td>
+                        <td>
+                            Write a program to print a paragraph with comment line in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_23.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            24. 
+                        </td>
+                        <td>
+                            Write a program to make a use of &lt;br&gt; tag in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_24.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            25. 
+                        </td>
+                        <td>
+                            Write a program to insert an image with its height width in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_25.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            26. 
+                        </td>
+                        <td>
+                            Write a program to print welcome to the polytechnic college with different heading tag?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_26.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            27. 
+                        </td>
+                        <td>
+                            Write a program to print formula using different formatting tag (&lt;b&gt;,&lt; strong
+                            &gt;,&lt; i &gt;,&lt;em&gt;,&lt; mark &gt;,&lt;small &gt;, &lt; sub &gt;,&lt; sup &gt; ?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_27.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            28. 
+                        </td>
+                        <td>
+                            Write a program to make hyperlink to the particular text?
+                        </td>
+
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_28.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            29. 
+                        </td>
+                        <td>
+                            Write a program to change the background of a webpage?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_29.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            30. 
+                        </td>
+                        <td>
+                            Write a program to make use of picture tag in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_30.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            31. 
+                        </td>
+                        <td>
+                            Write a program to make an order list in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_31.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            32. 
+                        </td>
+                        <td>
+                            Write a program to make an un-order list in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_32.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            33. 
+                        </td>
+                        <td>
+                            Write a program to make use of a div tag in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_33.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            34. 
+                        </td>
+                        <td>
+                            Write a program to a code for HTML webpage which display table using TR and TD Tag?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_34.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            35. 
+                        </td>
+                        <td>
+                            Write a program to make the use of attributes in class in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_35.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            36. 
+                        </td>
+                        <td>
+                            Write a program to make a use of iframe in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_36.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            37. 
+                        </td>
+                        <td>
+                            Write a program to use script to print hello in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_37.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            38. 
+                        </td>
+                        <td>
+                            Write a program to insert a picture by given its part in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_38.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            39. 
+                        </td>
+                        <td>
+                            Write a program to use a different HTML Semantics Element?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_39.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            40. 
+                        </td>
+                        <td>
+                            Write a program to insert in an emojis?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_40.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            41. 
+                        </td>
+                        <td>
+                            Write a program to make a use of form tag?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_41.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            42. 
+                        </td>
+                        <td>
+                            Write a program to make an input tag?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_42.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            43. 
+                        </td>
+                        <td>
+                            Write a program to make an output tag?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_43.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            44. 
+                        </td>
+                        <td>
+                            Write a program to make a use of input type tab in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_44.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            45. 
+                        </td>
+                        <td>
+                            Write a program to make a SVG in HTML?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_45.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            46. 
+                        </td>
+                        <td>
+                            Write a program to make the use of selectors element in CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_46.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            47. 
+                        </td>
+                        <td>
+                            Write a program to make a use of text of element colour property of the text in Style Tag?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_47.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            48. 
+                        </th>
+                        <td>
+                            Write a program to the background colour in CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_48.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            49. 
+                        </td>
+                        <td>
+                            Write a program to make the create a border and change in different properties using CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_49.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            50. 
+                        </td>
+                        <td>
+                            Write a program to demonstrate box model in CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_50.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            51. 
+                        </td>
+                        <td>
+                            Write a program to make a use of margin in CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_51.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            52. 
+                        </td>
+                        <td>
+                            Write a program to align image filling include in CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_52.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            53. 
+                        </td>
+                        <td>
+                            Write a program to set the colour, align list in CSS?<br>
+                            <br>Part 1st:-<br>
+                            <br>Part 2nd:-
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_53.php?q=1" target="_blank" class="btn btn-outline-success mt-3">
+                                Open
+                            </a>
+                            <br>
+                            <a href="./22017C04031_53.php?q=2" target="_blank" class="btn btn-outline-success mt-3">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            54. 
+                        </td>
+                        <td>
+                            Write a program to do text decoration in CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_54.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            55. 
+                        </td>
+                        <td>
+                            Write a program to indentation different spacing b/w text words?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_55.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            56. 
+                        </td>
+                        <td>
+                            Write a program to transform the text in different CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_56.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            57. 
+                        </td>
+                        <td>
+                            Write a program to implement text in shadow in CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_57.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            58. 
+                        </td>
+                        <td>
+                            Write a program to make the different font style in CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_58.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            59. 
+                        </td>
+                        <td>
+                            Write a program to make a different icon in a CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_59.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            60. 
+                        </td>
+                        <td>
+                            Write a program to make an image gallery in a CSS?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_60.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            61. 
+                        </td>
+                        <td>
+                            Write a program to make CSS buttons?
+                        </td>
+                        <td>
+                            Completed
+                        </td>
+                        <td>
+                            <a href="./22017C04031_61.php" target="_blank" class="btn btn-outline-success">
+                                Open
+                            </a>
+                        </td>
+
+
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        const closeCross = document.getElementById('close-cross')
+        const closeBtn = document.getElementById('close-btn')
+        closeCross.addEventListener('click', e => greetWithName(null) )
+        closeBtn.addEventListener('click', e => greetWithName(null) )
+        const getGreeting = () => {
+            const now = new Date();
+            const hour = now.getHours();
+            if (hour >= 6 && hour < 12) {
+                return 'Good ^70Mo^50rning';
+            } else if (hour >= 12 && hour < 17) {
+                return 'Good ^70After^50noon';
+            } else if (hour >= 17 && hour < 22) {
+                return 'Good ^70Eve^50ning';
+            } else {
+                return 'Good ^70Ni^50ght';
+            }
+        }
+        const greetWithName = (name) => {
+
+            const userTitle = document.getElementById("user-title").value;  
+            nameWithSpace = name === null ? "" :" " + userTitle +" " + name ;
+            let typed = new Typed('#typed', {
+                strings: [`${getGreeting()}${nameWithSpace}`, " I'm Kes^50hav Raj^100poot.","Dr. B. R. Ambedkar Polytechnic College, Gwalior."," List Of ^150Webpages.",],
+                startDelay: 0,
+                backSpeed: 50,
+                backDelay: 2000,
+                typeSpeed: 50,
+                smartBackspace: true,
+                loop: true,
+                cursorChar: '🖋️',
+            });
+        }
+        const nameNotSaved = (sessionStorage.getItem("name") === null) ? true : false;
+        if (nameNotSaved) {
+            document.addEventListener('DOMContentLoaded', (event) => {
+                var myModal = new bootstrap.Modal(document.getElementById('ask-name'), {
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                myModal.show();
+            });
+            const saveName = document.getElementById("save-name");
+            saveName.addEventListener("click", e => {
+                let userName = document.getElementById("user-name").value;
+                if (userName != "" && userName != null && userName[0] != " " && userName.at(-1) != " " && !userName.includes("  ")) {
+
+                    let nameArray = userName.split(" ");
+                    nameArray.forEach((word, index, arr) => {
+                        arr[index] = word[0].toUpperCase() + word.slice(1).toLowerCase();
+                    });
+                    const properFormatName = nameArray.join(" ");
+                    sessionStorage.setItem("name", properFormatName);
+                    greetWithName(properFormatName);
+                } else {
+                    swal({
+                        title: "Invalid Whitespace or Null Value",
+                        text: "You have entered invalid whitespace or a null value in the name field.\n\n Please try again by refreshing the page.",
+                        icon: "warning",
+                    });
+
+                    greetWithName(null);
+                }
+            });
+
+        } else {
+            const name = sessionStorage.getItem("name");
+            greetWithName(name);
+        }
+        
+    </script>
+
+    <script>
+        function searchTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+                for (var j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        txtValue = td[j].textContent || td[j].innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break;
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        function changeColor(select) {
+            if(select.value === "") {
+                select.classList.remove('black');
+            } else {
+                select.classList.add('black');
+            }
+        }
+    </script>
+      
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+        let search = document.getElementById("dt-search-0");
+        let limit = document.getElementById("dt-length-0");
+        search.classList.add('m-2', 'ms-3');
+        limit.classList.add('m-2', 'me-3');
+        search.placeholder = "Search";
+
+    </script> -->
+</body>
+
+</html>

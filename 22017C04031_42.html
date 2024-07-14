@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Que 42</title>
+    <style>
+        .Question{
+            height: 12vh;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width:920px){
+            .Question{
+                height: 8vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="Question">
+        <h1>Write a program to make an input tag?</h1>
+    </div>
+    <h1>Input Tag</h1> 
+	<p>The <b>input type="password"</b> defines a password field:</p> 
+    <form> 
+    	<label for="uname">Username:</label><br> 
+    	<input type="text" name="uname" id="uname"> 
+    	<br><label for="pw">Password:</label><br> 
+    	<input type="password" id="pw" name="pw" maxlength="12"> 
+    	<br><br><input type="submit" name="submit"> 
+	</form>
+</body>
+</html>

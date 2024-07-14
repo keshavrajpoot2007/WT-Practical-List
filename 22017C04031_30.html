@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Que 30</title>
+    <style>
+        .Question{
+            height: 12vh;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width:920px){
+            .Question{
+                height: 8vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="Question">
+        <h1>Write a program to make use of picture tag in HTML?</h1>
+    </div>
+    <h1>The picture element</h1> 
+	<p>Resize the browser window to load different images.</p> 
+	<picture> 
+  	<source media="(min-height:600px)" srcset="https://th.bing.com/th/id/OIP.hj2_f2dLDO95fAoLvS1phQHaEo?rs=1&pid=ImgDetMain"> 
+  	<source media="(min-width:465px)" srcset="https://wallpapercave.com/wp/wc1677391.jpg"> 
+  	<img src="https://wallpapercave.com/wp/wp5100724.jpg" alt="Car" height="200"> 
+	</picture>
+</body>
+</html>

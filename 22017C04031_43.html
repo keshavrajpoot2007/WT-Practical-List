@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Que 43</title>
+    <style>
+        .Question{
+            height: 12vh;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width:920px){
+            .Question{
+                height: 8vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="Question">
+        <h1>Write a program to make an output tag?</h1>
+    </div>
+    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        <input type="range" id="a" value="50">
+        + <input type="number" id="b" value="50">
+        = <output name="x" for="a b"></output>
+    </form>
+</body>
+</html>

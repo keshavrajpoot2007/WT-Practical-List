@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Que 18</title>
+    <style>
+        .Question{
+            height: 12vh;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width:920px){
+            .Question{
+                height: 8vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="Question">
+        <h1>Write a code for html webpage which displays background.</h1>
+    </div>
+</body>
+</html>
+<?php
+if (isset($_GET['q']) && $_GET['q'] == 1) {
+?>
+<html>
+
+<body style="background-color:#212625;">
+    <div style="margin: 5vh; border-radius: 20px; text-align: center; padding: 2rem; background-color:#d6f629;">
+        <h1>Keshav Rajpoot</h1>
+        <h2>Student of C.S.E Branch</h2>
+        <h3>Second (4<sup>th</sup>)Semester</h3>
+    </div>
+</body>
+
+</html>
+<?php
+} else if (isset($_GET['q']) && $_GET['q'] == 2) {
+?>
+
+
+<html> 
+<head> 
+	<style> 
+    	body {background-image:url(https://i.ytimg.com/vi/JwnfNZFv81o/maxresdefault.jpg); color:#6b72d4} 
+	</style> 
+</head> 
+<body> 
+	<h1>Keshav Rajpoot</h1> 
+	<h2>background Image</h2> 
+</body> 
+</html>  
+
+
+<?php
+} else if (isset($_GET['q']) && $_GET['q'] == 3) {
+?>
+<html> 
+<head> 
+	<style> 
+    	body {background-image:url(https://wallpapercave.com/wp/dvbKFz3.jpg);background-repeat: no-repeat; color:#f5de0e} 
+	</style> 
+</head> 
+<body> 
+	<h1>Keshav Rajpoot</h1> 
+	<h2>Background Image With No Repeat</h2> 
+</body> 
+</html>
+
+
+<?php
+} else if (isset($_GET['q']) && $_GET['q'] == 4) {
+?>
+<html> 
+<head> 
+	<style> 
+    	body { background-image:url(https://wallpaperaccess.com/full/4319054.jpg); background-repeat: no-repeat; background-attachment: fixed; color:#0ef180; } 
+    	p { font-size: 30px; } 
+	</style> 
+</head> 
+<body> 
+	<h1>Keshav Rajpoot</h1> 
+	<h2>Background image with Fixed Attachment and no Repeat.</h2> 
+	<p>try <br> to <br> scroll <br> down </p> <p>try <br> to <br> scroll <br> down </p> 
+	<p>try <br> to <br> scroll <br> down </p> <p>try <br> to <br> scroll <br> down </p> 
+	<p>try <br> to <br> scroll <br> down </p> <p>try <br> to <br> scroll <br> down </p> 
+	<p>try <br> to <br> scroll <br> down </p> <p>try <br> to <br> scroll <br> down </p> 
+</body> 
+</html>
+
+
+<?php
+} else {
+?>
+
+<html> 
+<head> 
+	<style> 
+    	body { background-image:url(https://wallpaperaccess.com/full/4319054.jpg); background-repeat: no-repeat; background-attachment: fixed; background-position: right top; color:#189949; } 
+    	p { font-size: 30px; } 
+	</style> 
+</head> 
+<body> 
+	<h1>Keshav Rajpoot</h1> 
+	<h2>Background Image with - Fixed Attachment , Right-Top Position and no Repeat.</h2> 
+	<p>try <br> to <br> scroll <br> down </p><p>try <br> to <br> scroll <br> down </p> 
+	<p>try <br> to <br> scroll <br> down </p><p>try <br> to <br> scroll <br> down </p> 
+	<p>try <br> to <br> scroll <br> down </p><p>try <br> to <br> scroll <br> down </p> 
+	<p>try <br> to <br> scroll <br> down </p> <p>try <br> to <br> scroll <br> down </p> 
+</body> 
+</html>
+
+<?php
+}
+?>
